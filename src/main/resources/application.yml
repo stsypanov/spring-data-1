@@ -1,0 +1,24 @@
+logging.pattern.console:
+
+logging.level.root: error
+logging.level.org.springframework: error
+logging.level.org.springframework.transaction: error
+logging.level.org.springframework.transaction.interceptor.TransactionInterceptor: error
+logging.level.org.springframework.orm.jpa.JpaTransactionManager: error
+logging.level.org.hibernate: error
+logging.level.org.hibernate.engine.transaction: error
+logging.level.p6spy: error
+
+spring.datasource.url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false;
+#spring.datasource.url: jdbc:postgresql://localhost:5432/postgres?currentSchema=jpa-test
+#spring.datasource.username: postgres
+#spring.datasource.password: postgres
+#spring.datasource.driver-class-name: org.postgresql.Driver
+
+spring.jpa.show-sql: false
+#spring.jpa.hibernate.ddl-auto: create
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL94Dialect
+
+logging.level.org.hibernate.SQL: error
+
+spring.main.banner-mode: "off"

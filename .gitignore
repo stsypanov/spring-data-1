@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+spring-data-examples.iml
+target/
+*.log
+*.sql

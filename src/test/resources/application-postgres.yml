@@ -1,0 +1,6 @@
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL94Dialect
+
+spring.datasource.url: jdbc:postgresql://localhost:5432/postgres?currentSchema=jpa-test
+spring.datasource.username: postgres
+spring.datasource.password: postgres
+spring.datasource.driver-class-name: org.postgresql.Driver
