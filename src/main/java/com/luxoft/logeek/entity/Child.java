@@ -30,7 +30,4 @@ public class Child {
     @LazyCollection(value = LazyCollectionOption.EXTRA)
     private List<Toy> toys = new ArrayList<>();
 
-    public Child() {
-    }
-
 }
