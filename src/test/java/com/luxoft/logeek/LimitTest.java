@@ -10,9 +10,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-@ActiveProfiles(profiles = "postgres")
+@SpringBootTest
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = AppConfig.class)
+@ActiveProfiles(profiles = "postgres")
 public class LimitTest {
     @Autowired
     ChildRepository childRepository;
