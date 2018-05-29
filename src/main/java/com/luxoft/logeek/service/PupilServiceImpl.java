@@ -1,5 +1,6 @@
 package com.luxoft.logeek.service;
 
+import com.luxoft.logeek.entity.Pupil;
 import com.luxoft.logeek.entity.Кореш;
 import com.luxoft.logeek.repository.PupilRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,11 +22,10 @@ public class PupilServiceImpl implements PupilService {
     }
 
     @Override
-    public void подружиться(Long pupilId, Кореш кореш) {
-        pupilRepository.findById(pupilId).ifPresent(pupil -> {
-            pupil.подружиться(кореш);
-            pupilRepository.save(pupil);
-        });
+    public Pupil подружиться(Long pupilId, Кореш кореш) {
+        Pupil pupil = pupilRepository.findById(pupilId).orElseThrow(NullPointerException::new);
+        pupil.подружиться(кореш);
+        return pupil;
     }
 
 
