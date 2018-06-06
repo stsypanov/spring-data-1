@@ -14,8 +14,10 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
+@Transactional
 @RunWith(SpringRunner.class)
 @ActiveProfiles(profiles = "h2")
 @TestExecutionListeners(value = {
