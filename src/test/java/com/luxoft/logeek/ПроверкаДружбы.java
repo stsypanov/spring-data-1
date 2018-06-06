@@ -1,9 +1,10 @@
-package com.luxoft.logeek.service;
+package com.luxoft.logeek;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.luxoft.logeek.TestBase;
 import com.luxoft.logeek.entity.Ученик;
 import com.luxoft.logeek.entity.Друг;
+import com.luxoft.logeek.service.PupilService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

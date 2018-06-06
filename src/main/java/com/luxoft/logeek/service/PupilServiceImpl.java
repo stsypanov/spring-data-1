@@ -22,7 +22,6 @@ public class PupilServiceImpl implements PupilService {
     }
 
     @Override
-    @Transactional
     public Ученик подружиться(Long pupilId, Друг друг) {
         Ученик ученик = repository.findById(pupilId).orElseThrow(NullPointerException::new);
         ученик.подружиться(друг);
