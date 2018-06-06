@@ -17,12 +17,16 @@ public class Modifier {
     }
 
     public Ученик накинутьГодИСохранить(Long pupilId) {
-        Ученик ученик = repository.findById(pupilId).orElseThrow(NullPointerException::new);
-        ученик.возраст++;
+        Ученик ученик = добавить(pupilId);
         return repository.save(ученик);
     }
 
     public Ученик накинутьГод(Long pupilId) {
+        Ученик ученик = добавить(pupilId);
+        return ученик;
+    }
+
+    private Ученик добавить(Long pupilId) {
         Ученик ученик = repository.findById(pupilId).orElseThrow(NullPointerException::new);
         ученик.возраст++;
         return ученик;
