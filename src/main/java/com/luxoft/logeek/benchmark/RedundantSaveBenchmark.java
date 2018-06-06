@@ -24,12 +24,12 @@ public class RedundantSaveBenchmark {
 
     @Benchmark
     public Object save() {
-        return modifier.накинутьГодикДаСохранить(id);
+        return modifier.накинутьГодИСохранить(id);
     }
 
     @Benchmark
     public Object noSave() {
-        return modifier.накинутьГодик(id);
+        return modifier.накинутьГод(id);
     }
 
 }
