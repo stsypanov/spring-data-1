@@ -2,7 +2,7 @@ package com.luxoft.logeek.benchmark;
 
 
 import com.luxoft.logeek.AppConfig;
-import com.luxoft.logeek.entity.Pupil;
+import com.luxoft.logeek.entity.Ученик;
 import com.luxoft.logeek.service.impl.Modifier;
 import org.openjdk.jmh.annotations.*;
 import org.springframework.boot.SpringApplication;
@@ -19,17 +19,17 @@ public class RedundantSaveBenchmark {
     @Setup
     public void setup() {
         modifier = SpringApplication.run(AppConfig.class).getBean(Modifier.class);
-        id = modifier.save(new Pupil()).getId();
+        id = modifier.save(new Ученик()).getId();
     }
 
     @Benchmark
     public Object save() {
-        return modifier.updateAgeWithSave(id);
+        return modifier.накинутьГодикДаСохранить(id);
     }
 
     @Benchmark
     public Object noSave() {
-        return modifier.updateAge(id);
+        return modifier.накинутьГодик(id);
     }
 
 }

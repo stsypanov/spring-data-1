@@ -19,17 +19,17 @@ public class PupilServiceImplTest extends TestBase {
     public void changeSchool() {
         pupilRepository
                 .findById(1L)
-                .ifPresent(pupil -> System.out.println("Моя старая школа: " + pupil.getSchoolName()));
-        pupilService.changeSchool(1L, "ООШ №3");
+                .ifPresent(ученик -> System.out.println("Моя старая школа: " + ученик.названиеШколы()));
+        pupilService.сменитьШколу(1L, "ООШ №3");
     }
 
     @AfterTransaction
     public void tearDown() {
         pupilRepository
                 .findById(1L)
-                .ifPresent(pupil -> {
-                    assertEquals("ООШ №3", pupil.getSchoolName());
-                    System.out.println("Моя новая школа: " + pupil.getSchoolName());
+                .ifPresent(ученик -> {
+                    assertEquals("ООШ №3", ученик.названиеШколы());
+                    System.out.println("Моя новая школа: " + ученик.названиеШколы());
                 });
     }
 }

@@ -1,10 +1,10 @@
 package com.luxoft.logeek.service;
 
-import com.luxoft.logeek.entity.Pupil;
-import com.luxoft.logeek.entity.Кореш;
+import com.luxoft.logeek.entity.Ученик;
+import com.luxoft.logeek.entity.Друг;
 
 public interface PupilService {
-    void changeSchool(Long pupilId, String schoolName);
+    void сменитьШколу(Long pupilId, String schoolName);
 
-    Pupil подружиться(Long pupilId, Кореш кореш);
+    Ученик подружиться(Long pupilId, Друг друг);
 }

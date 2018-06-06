@@ -1,7 +1,7 @@
 package com.luxoft.logeek.service;
 
-import com.luxoft.logeek.entity.Pupil;
-import com.luxoft.logeek.entity.Кореш;
+import com.luxoft.logeek.entity.Ученик;
+import com.luxoft.logeek.entity.Друг;
 import com.luxoft.logeek.repository.PupilRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -11,21 +11,22 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @RequiredArgsConstructor
 public class PupilServiceImpl implements PupilService {
-    private final PupilRepository pupilRepository;
+    private final PupilRepository repository;
 
     @Override
-    public void changeSchool(Long pupilId, String schoolName) {
-        pupilRepository.findById(pupilId).ifPresent(pupil -> {
-            pupil.setSchoolName(schoolName);
-            pupilRepository.save(pupil);
+    public void сменитьШколу(Long pupilId, String названиеШколы) {
+        repository.findById(pupilId).ifPresent(ученик -> {
+            ученик.сменитьШколу(названиеШколы);
+            repository.save(ученик);
         });
     }
 
     @Override
-    public Pupil подружиться(Long pupilId, Кореш кореш) {
-        Pupil pupil = pupilRepository.findById(pupilId).orElseThrow(NullPointerException::new);
-        pupil.подружиться(кореш);
-        return pupil;
+    @Transactional
+    public Ученик подружиться(Long pupilId, Друг друг) {
+        Ученик ученик = repository.findById(pupilId).orElseThrow(NullPointerException::new);
+        ученик.подружиться(друг);
+        return repository.save(ученик);
     }
 
 

@@ -1,6 +1,6 @@
 package com.luxoft.logeek.service.impl;
 
-import com.luxoft.logeek.entity.Pupil;
+import com.luxoft.logeek.entity.Ученик;
 import com.luxoft.logeek.repository.PupilRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -12,19 +12,19 @@ import org.springframework.transaction.annotation.Transactional;
 public class Modifier {
     private final PupilRepository repository;
 
-    public Pupil save(Pupil pupil) {
-        return repository.save(pupil);
+    public Ученик save(Ученик ученик) {
+        return repository.save(ученик);
     }
 
-    public Pupil updateAgeWithSave(Long pupilId) {
-        Pupil pupil = repository.findById(pupilId).orElseThrow(NullPointerException::new);
-        pupil.age++;
-        return repository.save(pupil);
+    public Ученик накинутьГодикДаСохранить(Long pupilId) {
+        Ученик ученик = repository.findById(pupilId).orElseThrow(NullPointerException::new);
+        ученик.возраст++;
+        return repository.save(ученик);
     }
 
-    public Pupil updateAge(Long pupilId) {
-        Pupil pupil = repository.findById(pupilId).orElseThrow(NullPointerException::new);
-        pupil.age++;
-        return pupil;
+    public Ученик накинутьГодик(Long pupilId) {
+        Ученик ученик = repository.findById(pupilId).orElseThrow(NullPointerException::new);
+        ученик.возраст++;
+        return ученик;
     }
 }

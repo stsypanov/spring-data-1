@@ -2,8 +2,8 @@ package com.luxoft.logeek.service;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.luxoft.logeek.TestBase;
-import com.luxoft.logeek.entity.Pupil;
-import com.luxoft.logeek.entity.Кореш;
+import com.luxoft.logeek.entity.Ученик;
+import com.luxoft.logeek.entity.Друг;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +18,15 @@ public class ПроверкаДружбы extends TestBase {
 
     @Test
     public void будемЛиДружить() {
-        Кореш кореш = new Кореш();
-        pupilService.подружиться(1L, кореш);
+        Друг друг = new Друг();
+        pupilService.подружиться(1L, друг);
     }
 
     @AfterTransaction
     public void tearDown() {
         pupilRepository
                 .findById(1L)
-                .map(Pupil::getКореш)
+                .map(Ученик::лучшийДруг)
                 .ifPresent(Assert::assertNotNull);
     }
 }
