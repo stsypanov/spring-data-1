@@ -14,26 +14,26 @@ import static org.junit.Assert.assertEquals;
 @Commit
 @DatabaseSetup("/PupilServiceImplTest.xml")
 public class PupilServiceImplTest extends TestBase {
+    private final String новаяШкола = "ООШ №3";
+
     @Autowired
     private PupilService pupilService;
 
     @Before
-    public void setUp() {
-        pupilRepository.findById(1L)
-                .map(Ученик::названиеШколы)
-                .ifPresent(this::вывестиШколу);
+    public void проверкаДо() {
+        pupilRepository.findById(1L).map(Ученик::названиеШколы).ifPresent(this::вывестиШколу);
     }
 
     @Test
-    public void changeSchool() {
-        pupilService.сменитьШколу(1L, "ООШ №3");
+    public void сменитьШколу() {
+        pupilService.сменитьШколу(1L, новаяШкола);
     }
 
     @AfterTransaction
-    public void tearDown() {
+    public void проверкаПосле() {
         pupilRepository.findById(1L).map(Ученик::названиеШколы)
                 .ifPresent(школа -> {
-                    assertEquals("ООШ №3", школа);
+                    assertEquals(новаяШкола, школа);
                     вывестиШколу(школа);
                 });
     }

@@ -4,7 +4,7 @@ import com.luxoft.logeek.entity.Ученик;
 import com.luxoft.logeek.entity.Друг;
 
 public interface PupilService {
-    void сменитьШколу(Long pupilId, String schoolName);
+    void сменитьШколу(Long номер, String наваниеШколы);
 
-    Ученик подружиться(Long pupilId, Друг друг);
+    Ученик подружиться(Long номер, Друг друг);
 }

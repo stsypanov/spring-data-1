@@ -14,16 +14,16 @@ public class PupilServiceImpl implements PupilService {
     private final PupilRepository repository;
 
     @Override
-    public void сменитьШколу(Long pupilId, String названиеШколы) {
-        repository.findById(pupilId).ifPresent(ученик -> {
-            ученик.сменитьШколу(названиеШколы);
+    public void сменитьШколу(Long номер, String наваниеШколы) {
+        repository.findById(номер).ifPresent(ученик -> {
+            ученик.сменитьШколу(наваниеШколы);
             repository.save(ученик);
         });
     }
 
     @Override
-    public Ученик подружиться(Long pupilId, Друг друг) {
-        Ученик ученик = repository.findById(pupilId).orElseThrow(NullPointerException::new);
+    public Ученик подружиться(Long номер, Друг друг) {
+        Ученик ученик = repository.findById(номер).orElseThrow(NullPointerException::new);
         ученик.подружиться(друг);
         return repository.save(ученик);
     }
