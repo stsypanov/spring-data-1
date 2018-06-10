@@ -20,7 +20,7 @@ public class Ученик {
     @Column
     private String названиеШколы;
 
-    @JoinColumn(name = "кореш")
+    @JoinColumn(name = "друг")
     @OneToOne(cascade = CascadeType.ALL)
     private Друг лучшийДруг;
 
