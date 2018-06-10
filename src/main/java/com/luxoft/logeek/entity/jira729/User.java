@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class UserAccount {
+public class User {
     @Id
     private long id;
 }

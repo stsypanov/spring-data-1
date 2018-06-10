@@ -6,12 +6,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class BankAccountControl {
+public class BankAccount {
     @Id
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "uac_id")
-    private UserAccount userAccount;
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }

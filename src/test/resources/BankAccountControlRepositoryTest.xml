@@ -1,7 +1,7 @@
 <dataset>
-    <user_account id="1"/>
-    <bank_account_control id="1" uac_id="1"/>
-    <bank_account_control id="2" uac_id="1"/>
-    <bank_account_control id="3" uac_id="1"/>
-    <bank_account_control id="4" uac_id="1"/>
+    <user id="1"/>
+    <bank_account id="1" user_id="1"/>
+    <bank_account id="2" user_id="1"/>
+    <bank_account id="3" user_id="1"/>
+    <bank_account id="4" user_id="1"/>
 </dataset>
