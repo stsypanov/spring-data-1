@@ -14,13 +14,13 @@ public interface BankAccountRepository extends BaseJpaRepository<BankAccount, Lo
      */
     long countByUserId(Long id);
 
-    @Query("select count(c.id) from BankAccount c " +
-            " where c.user.id = :id")
+    @Query("select count(ba) from BankAccount ba " +
+            " where ba.user.id = :id")
     long countByUserAccountId(@Param("id") Long id);
 
-    @Query("select count(bac) " +
-            "  from BankAccount bac " +
-            "  join bac.user user " +
+    @Query("select count(ba) " +
+            "  from BankAccount ba " +
+            "  join ba.user user " +
             " where user.id = :id")
     long countUserAccounts(@Param("id") Long id);
 }
