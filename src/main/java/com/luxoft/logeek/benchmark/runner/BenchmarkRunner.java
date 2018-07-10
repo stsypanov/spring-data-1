@@ -6,6 +6,7 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.TimeValue;
 
 public class BenchmarkRunner {
 
@@ -16,7 +17,9 @@ public class BenchmarkRunner {
 //				.include(ProjectionVsDataBenchmark.class.getSimpleName())
                 .include(RedundantSaveBenchmark.class.getSimpleName())
                 .warmupIterations(10)
+                .warmupTime(TimeValue.seconds(1))
                 .measurementIterations(10)
+                .measurementTime(TimeValue.seconds(1))
                 .shouldFailOnError(true)
                 .forks(2)//0 makes debugging possible
                 .addProfiler(GCProfiler.class)
