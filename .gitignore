@@ -3,4 +3,3 @@
 spring-data-examples.iml
 target/
 *.log
-*.sql
