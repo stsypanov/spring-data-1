@@ -2,7 +2,9 @@ package com.luxoft.logeek;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.luxoft.logeek.entity.Child;
+import com.luxoft.logeek.repository.ChildRepository;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +14,9 @@ import static org.junit.Assert.assertThat;
 
 @DatabaseSetup("/ChildRepositoryTest.xml")
 public class ChildRepositoryTest extends TestBase {
+
+    @Autowired
+    private ChildRepository childRepository;
 
     @Test
     public void findByParentIds() {

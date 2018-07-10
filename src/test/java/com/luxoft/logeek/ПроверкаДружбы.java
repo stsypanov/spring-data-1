@@ -3,6 +3,7 @@ package com.luxoft.logeek;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.luxoft.logeek.entity.Друг;
 import com.luxoft.logeek.entity.Ученик;
+import com.luxoft.logeek.repository.PupilRepository;
 import com.luxoft.logeek.service.PupilService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,6 +18,8 @@ import static org.junit.Assert.assertNotNull;
 public class ПроверкаДружбы extends TestBase {
     @Autowired
     private PupilService pupilService;
+    @Autowired
+    private PupilRepository pupilRepository;
 
     @Test
     public void будемЛиДружить() {

@@ -2,6 +2,7 @@ package com.luxoft.logeek;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.luxoft.logeek.entity.Ученик;
+import com.luxoft.logeek.repository.PupilRepository;
 import com.luxoft.logeek.service.PupilService;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,8 @@ public class PupilServiceImplTest extends TestBase {
 
     @Autowired
     private PupilService pupilService;
+    @Autowired
+    private PupilRepository pupilRepository;
 
     @Before
     public void проверкаДо() {

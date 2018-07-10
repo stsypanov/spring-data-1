@@ -24,11 +24,5 @@ import org.springframework.transaction.annotation.Transactional;
         DbUnitTestExecutionListener.class
 })
 public abstract class TestBase {
-    @Autowired
-    protected PupilRepository pupilRepository;
-    @Autowired
-    protected ChildRepository childRepository;
-    @Autowired
-    protected ParentRepository parentRepository;
 
 }
