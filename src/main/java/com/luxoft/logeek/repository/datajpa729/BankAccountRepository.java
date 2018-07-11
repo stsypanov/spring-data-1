@@ -23,4 +23,7 @@ public interface BankAccountRepository extends BaseJpaRepository<BankAccount, Lo
             "  join ba.user user " +
             " where user.id = :id")
     long countUserAccounts(@Param("id") Long id);
+
+    @Query("select ba.available from BankAccount ba where ba.id = :id")
+    boolean findIfAvailable(@Param("id") Long id);
 }

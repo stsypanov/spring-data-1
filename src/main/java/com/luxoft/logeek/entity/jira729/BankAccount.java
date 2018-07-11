@@ -1,11 +1,11 @@
 package com.luxoft.logeek.entity.jira729;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import lombok.Getter;
+
+import javax.persistence.*;
 
 @Entity
+@Getter
 public class BankAccount {
     @Id
     private long id;
@@ -13,5 +13,7 @@ public class BankAccount {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    private boolean available;
 
 }

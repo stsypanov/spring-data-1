@@ -21,8 +21,9 @@ create sequence hibernate_sequence
   increment by 1;
 
 create table bank_account (
-  id      bigint not null,
-  user_id bigint,
+  id        bigint not null,
+  user_id   bigint,
+  available bool,
   primary key (id)
 );
 
