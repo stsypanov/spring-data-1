@@ -15,19 +15,19 @@ public class BankAccountRepositoryTest extends TestBase {
     @Test
     public void countByUserAccountId() {
         long count = bankAccountRepository.countByUserAccountId(1L);
-        assertEquals(4, count);
+        assertEquals(5, count);
     }
 
     @Test
     public void countByUserAccount_Id() {
         long count = bankAccountRepository.countByUserId(1L);
-        assertEquals(4, count);
+        assertEquals(5, count);
     }
 
     @Test
     public void countUserAccounts() {
         long count = bankAccountRepository.countUserAccounts(1L);
-        assertEquals(4, count);
+        assertEquals(5, count);
     }
 
 }
