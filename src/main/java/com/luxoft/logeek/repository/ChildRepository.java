@@ -16,6 +16,4 @@ public interface ChildRepository extends BaseJpaRepository<Child, Long>, ChildRe
             "where child.parent.name in :names")
     List<Child> findChildByParentName(@Param("names") Iterable<String> parentNames);
 
-    @Query(nativeQuery = true, value = "select c from Child c order by c.age limit 1")
-    Child findOldestOne();
 }
