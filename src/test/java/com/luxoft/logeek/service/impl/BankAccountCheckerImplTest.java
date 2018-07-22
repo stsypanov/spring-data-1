@@ -1,15 +1,15 @@
 package com.luxoft.logeek.service.impl;
 
-import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.luxoft.logeek.TestBase;
 import com.luxoft.logeek.service.BankAccountChecker;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.jdbc.Sql;
 
 import static org.junit.Assert.*;
 
 
-@DatabaseSetup("/BankAccountControlRepositoryTest.xml")
+@Sql(scripts = "/BankAccountCheckerImplTest.sql")
 public class BankAccountCheckerImplTest extends TestBase {
     @Autowired
     private BankAccountChecker bankAccountChecker;

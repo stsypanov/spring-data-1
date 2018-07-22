@@ -1,14 +1,14 @@
 package com.luxoft.logeek.service;
 
-import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.luxoft.logeek.TestBase;
 import com.luxoft.logeek.dto.UserNotifierDto;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.jdbc.Sql;
 
 import static org.junit.Assert.assertEquals;
 
-@DatabaseSetup("/UserNotifierTest.xml")
+@Sql("/UserNotifierTest.sql")
 public class UserNotifierTest extends TestBase {
     @Autowired
     UserNotifier notifier;

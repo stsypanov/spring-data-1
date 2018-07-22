@@ -1,6 +1,5 @@
 package com.luxoft.logeek;
 
-import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.luxoft.logeek.entity.Друг;
 import com.luxoft.logeek.entity.Ученик;
 import com.luxoft.logeek.repository.PupilRepository;
@@ -9,12 +8,13 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Commit;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.transaction.AfterTransaction;
 
 import static org.junit.Assert.assertNotNull;
 
 @Commit
-@DatabaseSetup("/PupilServiceImplTest.xml")
+@Sql("/PupilServiceImplTest.sql")
 public class ПроверкаДружбы extends TestBase {
     @Autowired
     private PupilService pupilService;

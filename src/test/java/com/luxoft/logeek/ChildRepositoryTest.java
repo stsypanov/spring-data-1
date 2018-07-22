@@ -1,10 +1,10 @@
 package com.luxoft.logeek;
 
-import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.luxoft.logeek.entity.Child;
 import com.luxoft.logeek.repository.ChildRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-@DatabaseSetup("/ChildRepositoryTest.xml")
+@Sql("/ChildRepositoryTest.sql")
 public class ChildRepositoryTest extends TestBase {
 
     @Autowired
