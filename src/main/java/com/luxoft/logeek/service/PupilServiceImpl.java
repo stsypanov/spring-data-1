@@ -1,7 +1,7 @@
 package com.luxoft.logeek.service;
 
-import com.luxoft.logeek.entity.Ученик;
 import com.luxoft.logeek.entity.Друг;
+import com.luxoft.logeek.entity.Ученик;
 import com.luxoft.logeek.repository.PupilRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -14,11 +14,10 @@ public class PupilServiceImpl implements PupilService {
     private final PupilRepository repository;
 
     @Override
-    public void сменитьШколу(Long номер, String наваниеШколы) {
-        repository.findById(номер).ifPresent(ученик -> {
-            ученик.сменитьШколу(наваниеШколы);
-            repository.save(ученик);
-        });
+    public Ученик сменитьШколу(Long номер, String наваниеШколы) {
+        Ученик ученик = repository.findById(номер).orElseThrow(NullPointerException::new);
+        ученик.сменитьШколу(наваниеШколы);
+        return repository.save(ученик);
     }
 
     @Override
@@ -27,6 +26,5 @@ public class PupilServiceImpl implements PupilService {
         ученик.подружиться(друг);
         return repository.save(ученик);
     }
-
 
 }
