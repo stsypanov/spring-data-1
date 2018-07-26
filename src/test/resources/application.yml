@@ -4,6 +4,9 @@ spring:
       ddl-auto: create
   main:
     banner-mode: "off"
+  dao:
+    exceptiontranslation:
+      enabled: false
 
 spring.jpa.properties.hibernate.show_sql: true
 spring.jpa.properties.hibernate.format_sql: true
