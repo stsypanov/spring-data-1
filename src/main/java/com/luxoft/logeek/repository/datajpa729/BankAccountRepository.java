@@ -5,6 +5,8 @@ import com.luxoft.logeek.repository.BaseJpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface BankAccountRepository extends BaseJpaRepository<BankAccount, Long> {
 
     /**
@@ -26,4 +28,12 @@ public interface BankAccountRepository extends BaseJpaRepository<BankAccount, Lo
 
     @Query("select ba.available from BankAccount ba where ba.id = :id")
     boolean findIfAvailable(@Param("id") Long id);
+
+    @Query("select ba from BankAccount ba " +
+            " where ba.user.id in :ids")
+    List<BankAccount> findAllByUserIds(@Param("ids") Iterable<Long> ids);
+
+    @Query("select ba from BankAccount ba " +
+            " where ba.user.name in :names")
+    List<BankAccount> findAllByUserNames(@Param("names") Iterable<String> names);
 }
