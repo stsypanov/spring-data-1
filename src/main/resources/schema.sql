@@ -23,6 +23,7 @@ create sequence hibernate_sequence
 create table bank_account (
   id        bigint not null,
   user_id   bigint,
+  rate      numeric,
   available bool,
   primary key (id)
 );

@@ -1,34 +1,42 @@
 package com.luxoft.logeek.service.impl;
 
-import com.luxoft.logeek.entity.Ученик;
-import com.luxoft.logeek.repository.PupilRepository;
+import com.luxoft.logeek.entity.jira729.BankAccount;
+import com.luxoft.logeek.exception.NPE;
+import com.luxoft.logeek.repository.datajpa729.BankAccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
 
 @Component
 @Transactional
 @RequiredArgsConstructor
 public class Modifier {
-    private final PupilRepository repository;
+    private final BigDecimal value = BigDecimal.valueOf(0.01);
+    private final BankAccountRepository repository;
 
-    public Ученик save(Ученик ученик) {
-        return repository.save(ученик);
+    public BankAccount save(BankAccount account) {
+        return repository.save(account);
     }
 
-    public Ученик накинутьГодИСохранить(Long pupilId) {
-        Ученик ученик = добавить(pupilId);
-        return repository.save(ученик);
+    public BankAccount addAndSave(Long pupilId) {
+        BankAccount account = addOne(pupilId);
+        return repository.save(account);
     }
 
-    public Ученик накинутьГод(Long pupilId) {
-        Ученик ученик = добавить(pupilId);
-        return ученик;
+    public BankAccount add(Long pupilId) {
+        BankAccount account = addOne(pupilId);
+        return account;
     }
 
-    private Ученик добавить(Long pupilId) {
-        Ученик ученик = repository.findById(pupilId).orElseThrow(NullPointerException::new);
-        ученик.возраст++;
-        return ученик;
+    private BankAccount addOne(Long id) {
+        BankAccount account = repository.findById(id).orElseThrow(NPE::new);
+        account.setRate(account.getRate().add(value));
+        return account;
+    }
+
+    public void clear() {
+        repository.deleteAllInBatch();
     }
 }
