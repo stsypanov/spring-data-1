@@ -3,6 +3,7 @@ package com.luxoft.logeek.service.impl;
 import com.luxoft.logeek.entity.jira729.BankAccount;
 import com.luxoft.logeek.entity.jira729.User;
 import com.luxoft.logeek.exception.NPE;
+import com.luxoft.logeek.repository.UserRepository;
 import com.luxoft.logeek.repository.datajpa729.BankAccountRepository;
 import com.luxoft.logeek.service.BankAccountService;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 @RequiredArgsConstructor
 public class BankAccountServiceImpl implements BankAccountService {
     private final BankAccountRepository repo;
+    private final UserRepository userRepository;
 
     @Override
     @Transactional
@@ -32,6 +34,14 @@ public class BankAccountServiceImpl implements BankAccountService {
         account.setUser(newUser);
         return repo.save(account);
 //        return account;
+    }
+
+    @Override
+    @Transactional
+    public BankAccount newForUser(Long userId) {
+        BankAccount account = new BankAccount();
+        userRepository.findById(userId).ifPresent(account::setUser);
+        return repo.save(account);
     }
 
 

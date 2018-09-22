@@ -10,4 +10,6 @@ public interface BankAccountService {
     BankAccount updateRate(Long accountId, BigDecimal newRate);
 
     BankAccount changeUser(Long accountId, User newOwner);
+
+    BankAccount newForUser(Long userId);
 }
