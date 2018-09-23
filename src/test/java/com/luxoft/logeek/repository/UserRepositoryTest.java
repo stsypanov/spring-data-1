@@ -3,9 +3,11 @@ package com.luxoft.logeek.repository;
 import com.luxoft.logeek.TestBase;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Collections;
 
+//@ActiveProfiles("oracle")
 public class UserRepositoryTest extends TestBase {
     @Autowired
     UserRepository userRepository;
@@ -13,5 +15,10 @@ public class UserRepositoryTest extends TestBase {
     @Test
     public void findAll() {
         userRepository.findAll(Collections.emptyList());
+    }
+
+    @Test
+    public void findAllById() {
+        userRepository.findAllById(Collections.emptyList());
     }
 }
