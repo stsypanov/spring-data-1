@@ -3,8 +3,13 @@ logging.pattern.console:
 logging.level.root: error
 
 spring.jpa.show-sql: false
+spring.jpa.open-in-view: false
 spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL94Dialect
 
 logging.level.org.hibernate.SQL: error
 
 spring.main.banner-mode: "off"
+spring:
+  dao:
+    exceptiontranslation:
+      enabled: false
