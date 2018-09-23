@@ -1,12 +1,10 @@
 package com.luxoft.logeek.service.impl;
 
 import com.luxoft.logeek.TestBase;
-import com.luxoft.logeek.entity.Child;
 import com.luxoft.logeek.entity.jira729.BankAccount;
-import com.luxoft.logeek.repository.datajpa729.BankAccountRepository;
+import com.luxoft.logeek.repository.BankAccountRepository;
 import com.luxoft.logeek.service.BankAccountService;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;

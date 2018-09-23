@@ -1,13 +1,12 @@
-package com.luxoft.logeek.repository.datajpa729;
+package com.luxoft.logeek.repository;
 
 import com.luxoft.logeek.entity.jira729.BankAccount;
-import com.luxoft.logeek.repository.BaseJpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface BankAccountRepository extends BaseJpaRepository<BankAccount, Long> {
+public interface BankAccountRepository extends BaseJpaRepository<BankAccount, Long>, BankAccountRepositoryCustom {
 
     /**
      * Bug: unnecessary left outer join

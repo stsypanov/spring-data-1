@@ -1,7 +1,7 @@
-package com.luxoft.logeek;
+package com.luxoft.logeek.repository.impl;
 
-import com.luxoft.logeek.entity.Child;
-import com.luxoft.logeek.repository.ChildRepository;
+import com.luxoft.logeek.entity.jira729.BankAccount;
+import com.luxoft.logeek.repository.BankAccountRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,25 +12,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-import static org.junit.Assert.assertFalse;
-
 @Transactional
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @ActiveProfiles(profiles = "h2")
-public class LimitTest {
+public class BankAccountRepositoryImplTest {
     @Autowired
-    ChildRepository childRepository;
+    private BankAccountRepository repository;
 
     @Test
-    public void findOldestOne() {
-        childRepository.findOldestOne();
+    public void findOneWithHighestRate() {
+        Optional<BankAccount> oneWithHighestRate = repository.findWithHighestRate();
     }
-
-    @Test
-    public void _findOldestOne() {
-        Optional<Child> optional = childRepository._findOldestOne();
-        assertFalse(optional.isPresent());
-    }
-
 }

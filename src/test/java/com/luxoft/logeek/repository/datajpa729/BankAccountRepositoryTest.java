@@ -2,6 +2,7 @@ package com.luxoft.logeek.repository.datajpa729;
 
 import com.luxoft.logeek.TestBase;
 import com.luxoft.logeek.entity.jira729.BankAccount;
+import com.luxoft.logeek.repository.BankAccountRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;

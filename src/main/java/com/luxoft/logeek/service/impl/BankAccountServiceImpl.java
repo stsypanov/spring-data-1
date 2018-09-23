@@ -4,7 +4,7 @@ import com.luxoft.logeek.entity.jira729.BankAccount;
 import com.luxoft.logeek.entity.jira729.User;
 import com.luxoft.logeek.exception.NPE;
 import com.luxoft.logeek.repository.UserRepository;
-import com.luxoft.logeek.repository.datajpa729.BankAccountRepository;
+import com.luxoft.logeek.repository.BankAccountRepository;
 import com.luxoft.logeek.service.BankAccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
