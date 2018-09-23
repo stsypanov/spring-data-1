@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 public class BankAccount {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column
     @Setter

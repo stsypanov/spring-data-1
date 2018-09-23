@@ -16,12 +16,12 @@ import java.util.Optional;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @ActiveProfiles(profiles = "h2")
-public class BankAccountRepositoryImplTest {
+public class LimitTest {
     @Autowired
     private BankAccountRepository repository;
 
     @Test
     public void findOneWithHighestRate() {
-        Optional<BankAccount> oneWithHighestRate = repository.findWithHighestRate();
+        repository.findWithHighestRate();
     }
 }
